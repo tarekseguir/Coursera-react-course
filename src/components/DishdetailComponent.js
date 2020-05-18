@@ -19,9 +19,9 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
     function RenderComments({comments}) {
         if (comments != null){
             return(<div>
-                <ul class="list-unstyled">
-                {comments.map((comment) =>{
-                    return <div className="container">
+                <ul className="list-unstyled">
+                {comments.map((comment,id) =>{
+                    return <div className="container" key={id}>
                         <li>{comment.comment}</li>
                         <li>--{comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</li>
                         </div>
