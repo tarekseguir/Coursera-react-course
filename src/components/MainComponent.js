@@ -10,6 +10,7 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
+import About from './AboutComponent';
 class Main extends Component {
 
   constructor(props) {
@@ -43,6 +44,15 @@ class Main extends Component {
         />
       );
     }
+
+    const AboutUsPage = () =>{
+      return(
+        <About
+          leaders={this.state.leaders}
+        />
+      );
+    }
+
     return (
       <div>
         <Header />
@@ -50,6 +60,7 @@ class Main extends Component {
             <Route path='/home' component={HomePage} />
             <Route exact path='/menu' component={() => <Menu dishes={this.state.dishes} onClick={(dishId) => this.onDishSelect(dishId)} />} />
             <Route exact path='/contactus' component={Contact} />
+            <Route exact path='/aboutus' component={AboutUsPage} />
             <Route path='/menu/:dishId' component={DishWithId} />
             <Redirect to="/home" />
         </Switch>
