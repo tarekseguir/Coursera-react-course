@@ -8,9 +8,9 @@ export default function RenderLeader(props) {
                 <img src={props.image} alt={props.name} />
             </div>
             <div className="col-12 col-md-8">
-                <CardTitle>{props.name}</CardTitle>
-                {props.designation ? <CardSubtitle>{props.designation}</CardSubtitle> : null }
-                <CardText>{props.description}</CardText>
+                <h3>{props.name}</h3>
+                {props.designation ? <h5>{props.designation}</h5> : null }
+                <p>{props.description}</p>
             </div>
         </div>
     )
