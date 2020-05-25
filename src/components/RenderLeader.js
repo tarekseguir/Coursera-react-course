@@ -1,5 +1,4 @@
 import React from 'react'
-import {CardText, CardTitle, CardSubtitle} from 'reactstrap';
 
 export default function RenderLeader(props) {
     return (
