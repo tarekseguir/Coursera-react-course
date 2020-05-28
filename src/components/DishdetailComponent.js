@@ -1,5 +1,5 @@
 import React,{ Component } from 'react'
-import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody, Row, Col, Label } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem, Button, Modal, ModalHeader, ModalBody, Col, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import {LocalForm, Control, Errors} from 'react-redux-form';
 class CommentForm extends Component {
@@ -16,8 +16,9 @@ class CommentForm extends Component {
         });
     }
     handleSubmitComment(values){
-        console.log('Current State is: ' + JSON.stringify(values));
-        alert('Current State is: ' + JSON.stringify(values));
+        this.handleClick();
+        console.log(this.props.dishId);
+        this.props.addComment(this.props.dishId, values.rating, values.yourname, values.comment);
     }
     render() {
         const required = (val) => val && val.length;
@@ -142,8 +143,11 @@ class CommentForm extends Component {
                         <RenderDish dish={props.dish} />
                     </div>
                     <div className="col-12 col-md-5 m-1">
-                        <RenderComments comments={props.comments} />
-                        <CommentForm/>
+                        <RenderComments comments={props.comments}
+                            addComment={props.addComment}
+                            dishId={props.dish.id}
+                        />
+                        <CommentForm dishId={props.dish.id} addComment={props.addComment} />
                     </div>
                 </div>
                 
